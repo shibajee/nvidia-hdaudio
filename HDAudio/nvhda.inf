@@ -25,10 +25,30 @@ nvhdap32.dll=222
 nvhdap64.dll=222
 nvhdagenco32.dll=222
 nvhdagenco64.dll=222
+EEA32H.dll=222
+EEA64H.dll=222
+EED32H.dll=222
+EED64H.dll=222
+EEG32H.dll=222
+EEG64H.dll=222
+EEL32H.dll=222
+EEL64H.dll=222
+EEP32H.dll=222
+EEP64H.dll=222
 
 [SignatureAttributes]
 nvhda32v.sys=SignatureAttributes.DRM
 nvhda64v.sys=SignatureAttributes.DRM
+EEA32H.dll=SignatureAttributes.PETrust
+EEA64H.dll=SignatureAttributes.PETrust
+EED32H.dll=SignatureAttributes.PETrust
+EED64H.dll=SignatureAttributes.PETrust
+EEG32H.dll=SignatureAttributes.PETrust
+EEG64H.dll=SignatureAttributes.PETrust
+EEL32H.dll=SignatureAttributes.PETrust
+EEL64H.dll=SignatureAttributes.PETrust
+EEP32H.dll=SignatureAttributes.PETrust
+EEP64H.dll=SignatureAttributes.PETrust
 
 [SignatureAttributes.DRM]
 DRMLevel=1300
@@ -749,35 +769,37 @@ NVHDA32V.CopyList=10,system32\drivers
 NVHDA64V.CopyList=10,system32\drivers
 NVHDAP32.CopyList=10,system32
 NVHDAP64.CopyList=10,system32
+PCEE4_32.CopyList=10,system32
+PCEE4_64.CopyList=10,system32
 CoInstaller_CopyFiles_32=11
 CoInstaller_CopyFiles_64=11
 
 [NVHDA32V]
 Include=ks.inf,wdmaudio.inf
 Needs=KS.Registration,WDMAUDIO.Registration
-CopyFiles=NVHDA32V.CopyList,NVHDAP32.CopyList
-AddReg=NVHDA.AddReg,NVHDA32V.AddReg,NVHDAP32.AddReg,NVHDANOAPO.AddReg,NVHDA.DefaultDevice.AddReg,MediaCategories.AddReg
+CopyFiles=NVHDA32V.CopyList,NVHDAP32.CopyList,PCEE4_32.CopyList
+AddReg=NVHDA.AddReg,NVHDA32V.AddReg,NVHDAP32.AddReg,NVHDANOAPO.AddReg,NVHDA.DefaultDevice.AddReg,MediaCategories.AddReg,PCEE4.HDMI.x86.AddReg
 AddProperty=NVHDA.AddProperty
 
 [WINBLUENVHDA32V]
 Include=ks.inf,wdmaudio.inf
 Needs=KS.Registration,WDMAUDIO.Registration
-CopyFiles=NVHDA32V.CopyList,NVHDAP32.CopyList
-AddReg=NVHDA_D3cold.AddReg,NVHDA32V.AddReg,NVHDAP32.AddReg,NVHDANOAPO.AddReg,NVHDA.DefaultDevice.AddReg,MediaCategories.AddReg
+CopyFiles=NVHDA32V.CopyList,NVHDAP32.CopyList,PCEE4_32.CopyList
+AddReg=NVHDA_D3cold.AddReg,NVHDA32V.AddReg,NVHDAP32.AddReg,NVHDANOAPO.AddReg,NVHDA.DefaultDevice.AddReg,MediaCategories.AddReg,PCEE4.HDMI.x86.AddReg
 AddProperty=NVHDA.AddProperty
 
 [NVHDA64V]
 Include=ks.inf,wdmaudio.inf
 Needs=KS.Registration,WDMAUDIO.Registration
-CopyFiles=NVHDA64V.CopyList,NVHDAP64.CopyList
-AddReg=NVHDA.AddReg,NVHDA64V.AddReg,NVHDAP64.AddReg,NVHDANOAPO.AddReg,NVHDA.DefaultDevice.AddReg,MediaCategories.AddReg
+CopyFiles=NVHDA64V.CopyList,NVHDAP64.CopyList,PCEE4_64.CopyList
+AddReg=NVHDA.AddReg,NVHDA64V.AddReg,NVHDAP64.AddReg,NVHDANOAPO.AddReg,NVHDA.DefaultDevice.AddReg,MediaCategories.AddReg,PCEE4.HDMI.x64.AddReg
 AddProperty=NVHDA.AddProperty
 
 [WINBLUENVHDA64V]
 Include=ks.inf,wdmaudio.inf
 Needs=KS.Registration,WDMAUDIO.Registration
-CopyFiles=NVHDA64V.CopyList,NVHDAP64.CopyList
-AddReg=NVHDA_D3cold.AddReg,NVHDA64V.AddReg,NVHDAP64.AddReg,NVHDANOAPO.AddReg,NVHDA.DefaultDevice.AddReg,MediaCategories.AddReg
+CopyFiles=NVHDA64V.CopyList,NVHDAP64.CopyList,PCEE4_64.CopyList
+AddReg=NVHDA_D3cold.AddReg,NVHDA64V.AddReg,NVHDAP64.AddReg,NVHDANOAPO.AddReg,NVHDA.DefaultDevice.AddReg,MediaCategories.AddReg,PCEE4.HDMI.x64.AddReg
 AddProperty=NVHDA.AddProperty
 
 [NVHDA32V.CopyList]
@@ -791,6 +813,20 @@ nvhdap32.dll
 
 [NVHDAP64.CopyList]
 nvhdap64.dll
+
+[PCEE4_32.CopyList]
+EEA32H.dll
+EED32H.dll
+EEG32H.dll
+EEL32H.dll
+EEP32H.dll
+
+[PCEE4_64.CopyList]
+EEA64H.dll
+EED64H.dll
+EEG64H.dll
+EEL64H.dll
+EEP64H.dll
 
 [NVHDA32V.CoInstallers]
 AddReg=CoInstaller_AddReg_32
@@ -1269,6 +1305,124 @@ HKLM,%MediaCategories%\%msguid.HDMIOut3%,Display,3,00,00,00,00
 HKLM,%MediaCategories%\%msguid.DPOut%,Name,2,%mspin.DPOut%
 HKLM,%MediaCategories%\%msguid.DPOut%,Display,3,00,00,00,00
 
+[PCEE4.HDMI.x86.AddReg]
+HKCR,CLSID\%FX_DOLBYAPO_PCEE4_HDMI_PREMIX_CLSID%,,,%FX_DOLBYAPO_PCEE4_HDMI_PREMIX_FriendlyName%
+HKCR,CLSID\%FX_DOLBYAPO_PCEE4_HDMI_PREMIX_CLSID%\InProcServer32,,%REG_EXPAND_SZ%,%%SystemRoot%%\System32\R4EEL32H.dll
+HKCR,CLSID\%FX_DOLBYAPO_PCEE4_HDMI_PREMIX_CLSID%\InProcServer32,ThreadingModel,,"Both"
+
+HKCR,CLSID\%FX_DOLBYAPO_PCEE4_HDMI_POSTMIX_CLSID%,,,%FX_DOLBYAPO_PCEE4_HDMI_PREMIX_FriendlyName%
+HKCR,CLSID\%FX_DOLBYAPO_PCEE4_HDMI_POSTMIX_CLSID%\InProcServer32,,%REG_EXPAND_SZ%,%%SystemRoot%%\System32\R4EEG32H.dll
+HKCR,CLSID\%FX_DOLBYAPO_PCEE4_HDMI_POSTMIX_CLSID%\InProcServer32,ThreadingModel,,"Both"
+
+HKCR,CLSID\%FX_DOLBYAPO_PCEE4_HDMI_UI_CLSID%,,,%FX_DOLBYAPO_PCEE4_HDMI_UI_FriendlyName%
+HKCR,CLSID\%FX_DOLBYAPO_PCEE4_HDMI_UI_CLSID%,AppID,,%DOLBYAPO_PCEE4_UI_AppID%
+HKCR,CLSID\%FX_DOLBYAPO_PCEE4_HDMI_UI_CLSID%\InprocServer32,,%REG_EXPAND_SZ%,%%SystemRoot%%\System32\R4EEP32H.dll
+HKCR,CLSID\%FX_DOLBYAPO_PCEE4_HDMI_UI_CLSID%\InProcServer32,ThreadingModel,,"Apartment"
+HKCR,CLSID\%FX_DOLBYAPO_PCEE4_HDMI_UI_CLSID%\TypeLib,,,%DOLBYAPO_PCEE4_UI_TypeLib%
+
+HKCR,CLSID\%DOLBYAPO_PCEE4_HDMI_COM_CLSID%,,,%DOLBYAPO_PCEE4_HDMI_COM_CLSID%
+HKCR,CLSID\%DOLBYAPO_PCEE4_HDMI_COM_CLSID%\InProcServer32,,%REG_EXPAND_SZ%,%%SystemRoot%%\System32\R4EED32H.dll
+HKCR,CLSID\%DOLBYAPO_PCEE4_HDMI_COM_CLSID%\InProcServer32,ThreadingModel,,"Both"
+
+HKCR,CLSID\%DOLBYAPO_PCEE4_HDMI_DDL_COM_CLSID%,,,%DOLBYAPO_PCEE4_HDMI_DDL_COM_FriendlyName%
+HKCR,CLSID\%DOLBYAPO_PCEE4_HDMI_DDL_COM_CLSID%\InProcServer32,,%REG_EXPAND_SZ%,%%SystemRoot%%\System32\R4EED32H.dll
+HKCR,CLSID\%DOLBYAPO_PCEE4_HDMI_DDL_COM_CLSID%\InProcServer32,ThreadingModel,,"Both"
+
+HKCR,CLSID\%DOLBYAPO_PCEE4_HDMI_SRC_COM_CLSID%,,,%DOLBYAPO_PCEE4_HDMI_SRC_COM_FriendlyName%
+HKCR,CLSID\%DOLBYAPO_PCEE4_HDMI_SRC_COM_CLSID%\InProcServer32,,%REG_EXPAND_SZ%,%%SystemRoot%%\System32\R4EED32H.dll
+HKCR,CLSID\%DOLBYAPO_PCEE4_HDMI_SRC_COM_CLSID%\InProcServer32,ThreadingModel,,"Both"
+
+HKCR,CLSID\%DOLBYAPO_PCEE4_HDMI_ASL_COM_CLSID%,,,%DOLBYAPO_PCEE4_HDMI_ASL_COM_FriendlyName%
+HKCR,CLSID\%DOLBYAPO_PCEE4_HDMI_ASL_COM_CLSID%\InProcServer32,,%REG_EXPAND_SZ%,%%SystemRoot%%\System32\R4EEA32H.dll
+HKCR,CLSID\%DOLBYAPO_PCEE4_HDMI_ASL_COM_CLSID%\InProcServer32,ThreadingModel,,"Both"
+
+; APO registration
+HKCR,AudioEngine\AudioProcessingObjects\%FX_DOLBYAPO_PCEE4_HDMI_PREMIX_CLSID%, "FriendlyName", ,"Dolby PCEE4 LFX APO"
+HKCR,AudioEngine\AudioProcessingObjects\%FX_DOLBYAPO_PCEE4_HDMI_PREMIX_CLSID%, "Copyright", ,%DolbyCopyRight%
+HKCR,AudioEngine\AudioProcessingObjects\%FX_DOLBYAPO_PCEE4_HDMI_PREMIX_CLSID%, "MajorVersion", 0x00010001, 1
+HKCR,AudioEngine\AudioProcessingObjects\%FX_DOLBYAPO_PCEE4_HDMI_PREMIX_CLSID%, "MinorVersion", 0x00010001, 0
+HKCR,AudioEngine\AudioProcessingObjects\%FX_DOLBYAPO_PCEE4_HDMI_PREMIX_CLSID%, "Flags", 0x00010001, 0x0000000c
+HKCR,AudioEngine\AudioProcessingObjects\%FX_DOLBYAPO_PCEE4_HDMI_PREMIX_CLSID%, "MinInputConnections", 0x00010001, 1
+HKCR,AudioEngine\AudioProcessingObjects\%FX_DOLBYAPO_PCEE4_HDMI_PREMIX_CLSID%, "MaxInputConnections", 0x00010001, 1
+HKCR,AudioEngine\AudioProcessingObjects\%FX_DOLBYAPO_PCEE4_HDMI_PREMIX_CLSID%, "MinOutputConnections", 0x00010001, 1
+HKCR,AudioEngine\AudioProcessingObjects\%FX_DOLBYAPO_PCEE4_HDMI_PREMIX_CLSID%, "MaxOutputConnections", 0x00010001, 1
+HKCR,AudioEngine\AudioProcessingObjects\%FX_DOLBYAPO_PCEE4_HDMI_PREMIX_CLSID%, "MaxInstances", 0x00010001, 0xffffffff
+HKCR,AudioEngine\AudioProcessingObjects\%FX_DOLBYAPO_PCEE4_HDMI_PREMIX_CLSID%, "NumAPOInterfaces", 0x00010001, 1
+HKCR,AudioEngine\AudioProcessingObjects\%FX_DOLBYAPO_PCEE4_HDMI_PREMIX_CLSID%, "APOInterface0", ,"{7F231F59-5CCD-47FF-982D-CEB1CBA9F410}"
+
+; APO registration
+HKCR,AudioEngine\AudioProcessingObjects\%FX_DOLBYAPO_PCEE4_HDMI_POSTMIX_CLSID%, "FriendlyName", ,"Dolby PCEE4 GFX APO"
+HKCR,AudioEngine\AudioProcessingObjects\%FX_DOLBYAPO_PCEE4_HDMI_POSTMIX_CLSID%, "Copyright", ,%DolbyCopyRight%
+HKCR,AudioEngine\AudioProcessingObjects\%FX_DOLBYAPO_PCEE4_HDMI_POSTMIX_CLSID%, "MajorVersion", 0x00010001, 1
+HKCR,AudioEngine\AudioProcessingObjects\%FX_DOLBYAPO_PCEE4_HDMI_POSTMIX_CLSID%, "MinorVersion", 0x00010001, 0
+HKCR,AudioEngine\AudioProcessingObjects\%FX_DOLBYAPO_PCEE4_HDMI_POSTMIX_CLSID%, "Flags", 0x00010001, 0x00000005
+HKCR,AudioEngine\AudioProcessingObjects\%FX_DOLBYAPO_PCEE4_HDMI_POSTMIX_CLSID%, "MinInputConnections", 0x00010001, 1
+HKCR,AudioEngine\AudioProcessingObjects\%FX_DOLBYAPO_PCEE4_HDMI_POSTMIX_CLSID%, "MaxInputConnections", 0x00010001, 1
+HKCR,AudioEngine\AudioProcessingObjects\%FX_DOLBYAPO_PCEE4_HDMI_POSTMIX_CLSID%, "MinOutputConnections", 0x00010001, 1
+HKCR,AudioEngine\AudioProcessingObjects\%FX_DOLBYAPO_PCEE4_HDMI_POSTMIX_CLSID%, "MaxOutputConnections", 0x00010001, 1
+HKCR,AudioEngine\AudioProcessingObjects\%FX_DOLBYAPO_PCEE4_HDMI_POSTMIX_CLSID%, "MaxInstances", 0x00010001, 0xffffffff
+HKCR,AudioEngine\AudioProcessingObjects\%FX_DOLBYAPO_PCEE4_HDMI_POSTMIX_CLSID%, "NumAPOInterfaces", 0x00010001, 1
+HKCR,AudioEngine\AudioProcessingObjects\%FX_DOLBYAPO_PCEE4_HDMI_POSTMIX_CLSID%, "APOInterface0", ,"{EFF8AFE0-E5A2-4E80-AC74-DCD988977A96}"
+
+[PCEE4.HDMI.x64.AddReg]
+HKCR,CLSID\%FX_DOLBYAPO_PCEE4_HDMI_PREMIX_CLSID%,,,%FX_DOLBYAPO_PCEE4_HDMI_PREMIX_FriendlyName%
+HKCR,CLSID\%FX_DOLBYAPO_PCEE4_HDMI_PREMIX_CLSID%\InProcServer32,,%REG_EXPAND_SZ%,%%SystemRoot%%\System32\R4EEL64H.dll
+HKCR,CLSID\%FX_DOLBYAPO_PCEE4_HDMI_PREMIX_CLSID%\InProcServer32,ThreadingModel,,"Both"
+
+HKCR,CLSID\%FX_DOLBYAPO_PCEE4_HDMI_POSTMIX_CLSID%,,,%FX_DOLBYAPO_PCEE4_HDMI_PREMIX_FriendlyName%
+HKCR,CLSID\%FX_DOLBYAPO_PCEE4_HDMI_POSTMIX_CLSID%\InProcServer32,,%REG_EXPAND_SZ%,%%SystemRoot%%\System32\R4EEG64H.dll
+HKCR,CLSID\%FX_DOLBYAPO_PCEE4_HDMI_POSTMIX_CLSID%\InProcServer32,ThreadingModel,,"Both"
+
+HKCR,CLSID\%FX_DOLBYAPO_PCEE4_HDMI_UI_CLSID%,,,%FX_DOLBYAPO_PCEE4_HDMI_UI_FriendlyName%
+HKCR,CLSID\%FX_DOLBYAPO_PCEE4_HDMI_UI_CLSID%,AppID,,%DOLBYAPO_PCEE4_UI_AppID%
+HKCR,CLSID\%FX_DOLBYAPO_PCEE4_HDMI_UI_CLSID%\InprocServer32,,%REG_EXPAND_SZ%,%%SystemRoot%%\System32\R4EEP64H.dll
+HKCR,CLSID\%FX_DOLBYAPO_PCEE4_HDMI_UI_CLSID%\InProcServer32,ThreadingModel,,"Apartment"
+HKCR,CLSID\%FX_DOLBYAPO_PCEE4_HDMI_UI_CLSID%\TypeLib,,,%DOLBYAPO_PCEE4_UI_TypeLib%
+
+HKCR,CLSID\%DOLBYAPO_PCEE4_HDMI_COM_CLSID%,,,%DOLBYAPO_PCEE4_HDMI_COM_CLSID%
+HKCR,CLSID\%DOLBYAPO_PCEE4_HDMI_COM_CLSID%\InProcServer32,,%REG_EXPAND_SZ%,%%SystemRoot%%\System32\R4EED64H.dll
+HKCR,CLSID\%DOLBYAPO_PCEE4_HDMI_COM_CLSID%\InProcServer32,ThreadingModel,,"Both"
+
+HKCR,CLSID\%DOLBYAPO_PCEE4_HDMI_DDL_COM_CLSID%,,,%DOLBYAPO_PCEE4_HDMI_DDL_COM_FriendlyName%
+HKCR,CLSID\%DOLBYAPO_PCEE4_HDMI_DDL_COM_CLSID%\InProcServer32,,%REG_EXPAND_SZ%,%%SystemRoot%%\System32\R4EED64H.dll
+HKCR,CLSID\%DOLBYAPO_PCEE4_HDMI_DDL_COM_CLSID%\InProcServer32,ThreadingModel,,"Both"
+
+HKCR,CLSID\%DOLBYAPO_PCEE4_HDMI_SRC_COM_CLSID%,,,%DOLBYAPO_PCEE4_HDMI_SRC_COM_FriendlyName%
+HKCR,CLSID\%DOLBYAPO_PCEE4_HDMI_SRC_COM_CLSID%\InProcServer32,,%REG_EXPAND_SZ%,%%SystemRoot%%\System32\R4EED64H.dll
+HKCR,CLSID\%DOLBYAPO_PCEE4_HDMI_SRC_COM_CLSID%\InProcServer32,ThreadingModel,,"Both"
+
+HKCR,CLSID\%DOLBYAPO_PCEE4_HDMI_ASL_COM_CLSID%,,,%DOLBYAPO_PCEE4_HDMI_ASL_COM_FriendlyName%
+HKCR,CLSID\%DOLBYAPO_PCEE4_HDMI_ASL_COM_CLSID%\InProcServer32,,%REG_EXPAND_SZ%,%%SystemRoot%%\System32\R4EEA64H.dll
+HKCR,CLSID\%DOLBYAPO_PCEE4_HDMI_ASL_COM_CLSID%\InProcServer32,ThreadingModel,,"Both"
+
+; APO registration
+HKCR,AudioEngine\AudioProcessingObjects\%FX_DOLBYAPO_PCEE4_HDMI_PREMIX_CLSID%, "FriendlyName", ,"Dolby PCEE4 LFX APO"
+HKCR,AudioEngine\AudioProcessingObjects\%FX_DOLBYAPO_PCEE4_HDMI_PREMIX_CLSID%, "Copyright", ,%DolbyCopyRight%
+HKCR,AudioEngine\AudioProcessingObjects\%FX_DOLBYAPO_PCEE4_HDMI_PREMIX_CLSID%, "MajorVersion", 0x00010001, 1
+HKCR,AudioEngine\AudioProcessingObjects\%FX_DOLBYAPO_PCEE4_HDMI_PREMIX_CLSID%, "MinorVersion", 0x00010001, 0
+HKCR,AudioEngine\AudioProcessingObjects\%FX_DOLBYAPO_PCEE4_HDMI_PREMIX_CLSID%, "Flags", 0x00010001, 0x0000000c
+HKCR,AudioEngine\AudioProcessingObjects\%FX_DOLBYAPO_PCEE4_HDMI_PREMIX_CLSID%, "MinInputConnections", 0x00010001, 1
+HKCR,AudioEngine\AudioProcessingObjects\%FX_DOLBYAPO_PCEE4_HDMI_PREMIX_CLSID%, "MaxInputConnections", 0x00010001, 1
+HKCR,AudioEngine\AudioProcessingObjects\%FX_DOLBYAPO_PCEE4_HDMI_PREMIX_CLSID%, "MinOutputConnections", 0x00010001, 1
+HKCR,AudioEngine\AudioProcessingObjects\%FX_DOLBYAPO_PCEE4_HDMI_PREMIX_CLSID%, "MaxOutputConnections", 0x00010001, 1
+HKCR,AudioEngine\AudioProcessingObjects\%FX_DOLBYAPO_PCEE4_HDMI_PREMIX_CLSID%, "MaxInstances", 0x00010001, 0xffffffff
+HKCR,AudioEngine\AudioProcessingObjects\%FX_DOLBYAPO_PCEE4_HDMI_PREMIX_CLSID%, "NumAPOInterfaces", 0x00010001, 1
+HKCR,AudioEngine\AudioProcessingObjects\%FX_DOLBYAPO_PCEE4_HDMI_PREMIX_CLSID%, "APOInterface0", ,"{7F231F59-5CCD-47FF-982D-CEB1CBA9F410}"
+
+; APO registration
+HKCR,AudioEngine\AudioProcessingObjects\%FX_DOLBYAPO_PCEE4_HDMI_POSTMIX_CLSID%, "FriendlyName", ,"Dolby PCEE4 GFX APO"
+HKCR,AudioEngine\AudioProcessingObjects\%FX_DOLBYAPO_PCEE4_HDMI_POSTMIX_CLSID%, "Copyright", ,%DolbyCopyRight%
+HKCR,AudioEngine\AudioProcessingObjects\%FX_DOLBYAPO_PCEE4_HDMI_POSTMIX_CLSID%, "MajorVersion", 0x00010001, 1
+HKCR,AudioEngine\AudioProcessingObjects\%FX_DOLBYAPO_PCEE4_HDMI_POSTMIX_CLSID%, "MinorVersion", 0x00010001, 0
+HKCR,AudioEngine\AudioProcessingObjects\%FX_DOLBYAPO_PCEE4_HDMI_POSTMIX_CLSID%, "Flags", 0x00010001, 0x00000005
+HKCR,AudioEngine\AudioProcessingObjects\%FX_DOLBYAPO_PCEE4_HDMI_POSTMIX_CLSID%, "MinInputConnections", 0x00010001, 1
+HKCR,AudioEngine\AudioProcessingObjects\%FX_DOLBYAPO_PCEE4_HDMI_POSTMIX_CLSID%, "MaxInputConnections", 0x00010001, 1
+HKCR,AudioEngine\AudioProcessingObjects\%FX_DOLBYAPO_PCEE4_HDMI_POSTMIX_CLSID%, "MinOutputConnections", 0x00010001, 1
+HKCR,AudioEngine\AudioProcessingObjects\%FX_DOLBYAPO_PCEE4_HDMI_POSTMIX_CLSID%, "MaxOutputConnections", 0x00010001, 1
+HKCR,AudioEngine\AudioProcessingObjects\%FX_DOLBYAPO_PCEE4_HDMI_POSTMIX_CLSID%, "MaxInstances", 0x00010001, 0xffffffff
+HKCR,AudioEngine\AudioProcessingObjects\%FX_DOLBYAPO_PCEE4_HDMI_POSTMIX_CLSID%, "NumAPOInterfaces", 0x00010001, 1
+HKCR,AudioEngine\AudioProcessingObjects\%FX_DOLBYAPO_PCEE4_HDMI_POSTMIX_CLSID%, "APOInterface0", ,"{EFF8AFE0-E5A2-4E80-AC74-DCD988977A96}"
+
 [NVHDA.Security.AddReg]
 HKR,,DeviceType,0x10001,0x0000001D
 
@@ -1461,19 +1615,41 @@ AUDIO_SIGNALPROCESSINGMODE_DEFAULT = "{C18E2F7E-933D-4965-B7D1-1EEF228D2AF3}"
 NVAPO_PREMIX_CLSID              = "{B48DEA3F-1234-425a-8D9A-9A5BB37A9904}"
 NVAPO_POSTMIX_CLSID             = "{06687E71-1234-403A-BF49-CB591BA6E103}"
 
-FX_FriendlyName                 = "Microsoft Audio Home Theater Effects"
-FX_PREMIX_CLSID                 = "{62dc1a93-ae24-464c-a43e-452f824c4250}"
-FX_POSTMIX_CLSID                = "{637c490d-eee3-4c0a-973f-371958802da2}"
-FX_STREAM_CLSID                 = "{62dc1a93-ae24-464c-a43e-452f824c4250}"
-FX_MODE_CLSID                   = "{637c490d-eee3-4c0a-973f-371958802da2}"
+FX_FriendlyName                 = "Dolby PCEE4 Effects"
+FX_PREMIX_CLSID                 = "{27C1D074-0E39-43b1-B00A-293DD512B759}"
+FX_POSTMIX_CLSID                = "{12844204-3EAD-4d9b-AB7F-B1C0FC218915}"
+FX_STREAM_CLSID                 = "{27C1D074-0E39-43b1-B00A-293DD512B759}"
+FX_MODE_CLSID                   = "{12844204-3EAD-4d9b-AB7F-B1C0FC218915}"
 ;FX_ENDPOINT_CLSID              = "{00000000-0000-0000-0000-000000000000}"
-FX_UI_CLSID                     = "{5860E1C5-F95C-4a7a-8EC8-8AEF24F379A1}"
+FX_UI_CLSID                     = "{DB811C5C-8490-418b-9807-5E99702AA9C9}"
 
 KSNODETYPE_ANY                  = "{00000000-0000-0000-0000-000000000000}"
 KSNODETYPE_SPEAKER              = "{DFF21CE1-F70F-11D0-B917-00A0C9223196}"
 KSNODETYPE_HDMI_INTERFACE       = "{D1B9CC2A-F519-417f-91C9-55FA65481001}"
 KSNODETYPE_DISPLAYPORT_INTERFACE= "{E47E4031-3EA6-418d-8F9B-B73843CCBA97}"
 NVUninstall.desc                = "NVIDIA High Definition Audio Driver"
+
+; PCEE4 APO related strings
+FX_DOLBYAPO_PCEE4_HDMI_PREMIX_FriendlyName      = "EE LFX HDMI Mainstream Class"
+FX_DOLBYAPO_PCEE4_HDMI_POSTMIX_FriendlyName     = "EE GFX HDMI Mainstream Class"
+FX_DOLBYAPO_PCEE4_HDMI_UI_FriendlyName          = "EE P HDMI Class"
+
+FX_DOLBYAPO_PCEE4_HDMI_PREMIX_CLSID             = "{27C1D074-0E39-43b1-B00A-293DD512B759}"
+FX_DOLBYAPO_PCEE4_HDMI_POSTMIX_CLSID            = "{12844204-3EAD-4d9b-AB7F-B1C0FC218915}"
+FX_DOLBYAPO_PCEE4_HDMI_UI_CLSID                 = "{DB811C5C-8490-418b-9807-5E99702AA9C9}"
+
+DOLBYAPO_PCEE4_HDMI_COM_FriendlyName            = "DolbyPCEE4 Class (HDMI)"
+DOLBYAPO_PCEE4_HDMI_DDL_COM_FriendlyName        = "DolbyDigitalLive Class (HDMI)"
+DOLBYAPO_PCEE4_HDMI_SRC_COM_FriendlyName        = "Dolby SRC Class (HDMI)"
+DOLBYAPO_PCEE4_HDMI_ASL_COM_FriendlyName        = "PCEE4 ASL HDMI COM Class"
+
+DOLBYAPO_PCEE4_HDMI_COM_CLSID                   = "{F1548E29-F620-4373-B5AB-5F7DBA3CFD99}"
+DOLBYAPO_PCEE4_HDMI_DDL_COM_CLSID               = "{CC999B32-C4B7-42d6-BD17-3B870C8989C2}"
+DOLBYAPO_PCEE4_HDMI_SRC_COM_CLSID               = "{351C4914-7E2C-4076-81BF-0320CF4AA9EA}"
+DOLBYAPO_PCEE4_HDMI_ASL_COM_CLSID               = "{6D3025CE-28B2-4156-A965-5A635C84B418}"
+
+DOLBYAPO_PCEE4_UI_AppID                         = "{0B814D20-6161-496f-9002-1539ED2F87CD}"
+DOLBYAPO_PCEE4_UI_TypeLib                       = "{A0D7941E-AB6A-42ff-AA6A-8FDD6B6F5D61}"
 
 ; Non-Localizable Strings
 REG_SZ                          = 0x00000000
