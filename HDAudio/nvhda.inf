@@ -778,28 +778,28 @@ CoInstaller_CopyFiles_64=11
 Include=ks.inf,wdmaudio.inf
 Needs=KS.Registration,WDMAUDIO.Registration
 CopyFiles=NVHDA32V.CopyList,NVHDAP32.CopyList,PCEE4_32.CopyList
-AddReg=NVHDA.AddReg,NVHDA32V.AddReg,NVHDAP32.AddReg,NVHDANOAPO.AddReg,NVHDA.DefaultDevice.AddReg,MediaCategories.AddReg,PCEE4.HDMI.x86.AddReg
+AddReg=NVHDA.AddReg,NVHDA32V.AddReg,NVHDAP32.AddReg,NVHDANOAPO.AddReg,NVHDA.DefaultDevice.AddReg,MediaCategories.AddReg,PCEE4.HDMI.x86.AddReg,PCEE4.AddReg
 AddProperty=NVHDA.AddProperty
 
 [WINBLUENVHDA32V]
 Include=ks.inf,wdmaudio.inf
 Needs=KS.Registration,WDMAUDIO.Registration
 CopyFiles=NVHDA32V.CopyList,NVHDAP32.CopyList,PCEE4_32.CopyList
-AddReg=NVHDA_D3cold.AddReg,NVHDA32V.AddReg,NVHDAP32.AddReg,NVHDANOAPO.AddReg,NVHDA.DefaultDevice.AddReg,MediaCategories.AddReg,PCEE4.HDMI.x86.AddReg
+AddReg=NVHDA_D3cold.AddReg,NVHDA32V.AddReg,NVHDAP32.AddReg,NVHDANOAPO.AddReg,NVHDA.DefaultDevice.AddReg,MediaCategories.AddReg,PCEE4.HDMI.x86.AddReg,PCEE4.AddReg
 AddProperty=NVHDA.AddProperty
 
 [NVHDA64V]
 Include=ks.inf,wdmaudio.inf
 Needs=KS.Registration,WDMAUDIO.Registration
 CopyFiles=NVHDA64V.CopyList,NVHDAP64.CopyList,PCEE4_64.CopyList
-AddReg=NVHDA.AddReg,NVHDA64V.AddReg,NVHDAP64.AddReg,NVHDANOAPO.AddReg,NVHDA.DefaultDevice.AddReg,MediaCategories.AddReg,PCEE4.HDMI.x64.AddReg
+AddReg=NVHDA.AddReg,NVHDA64V.AddReg,NVHDAP64.AddReg,NVHDANOAPO.AddReg,NVHDA.DefaultDevice.AddReg,MediaCategories.AddReg,PCEE4.HDMI.x64.AddReg,PCEE4.AddReg
 AddProperty=NVHDA.AddProperty
 
 [WINBLUENVHDA64V]
 Include=ks.inf,wdmaudio.inf
 Needs=KS.Registration,WDMAUDIO.Registration
 CopyFiles=NVHDA64V.CopyList,NVHDAP64.CopyList,PCEE4_64.CopyList
-AddReg=NVHDA_D3cold.AddReg,NVHDA64V.AddReg,NVHDAP64.AddReg,NVHDANOAPO.AddReg,NVHDA.DefaultDevice.AddReg,MediaCategories.AddReg,PCEE4.HDMI.x64.AddReg
+AddReg=NVHDA_D3cold.AddReg,NVHDA64V.AddReg,NVHDAP64.AddReg,NVHDANOAPO.AddReg,NVHDA.DefaultDevice.AddReg,MediaCategories.AddReg,PCEE4.HDMI.x64.AddReg,PCEE4.AddReg
 AddProperty=NVHDA.AddProperty
 
 [NVHDA32V.CopyList]
@@ -1422,6 +1422,11 @@ HKCR,AudioEngine\AudioProcessingObjects\%FX_DOLBYAPO_PCEE4_HDMI_POSTMIX_CLSID%, 
 HKCR,AudioEngine\AudioProcessingObjects\%FX_DOLBYAPO_PCEE4_HDMI_POSTMIX_CLSID%, "MaxInstances", 0x00010001, 0xffffffff
 HKCR,AudioEngine\AudioProcessingObjects\%FX_DOLBYAPO_PCEE4_HDMI_POSTMIX_CLSID%, "NumAPOInterfaces", 0x00010001, 1
 HKCR,AudioEngine\AudioProcessingObjects\%FX_DOLBYAPO_PCEE4_HDMI_POSTMIX_CLSID%, "APOInterface0", ,"{EFF8AFE0-E5A2-4E80-AC74-DCD988977A96}"
+
+[PCEE4.AddReg]
+HKLM,"SOFTWARE\Dolby\PCEE4\StaticKeys","{8A92D74F-1332-43f6-AB72-01C0E37F1CF0},0",%REG_DWORD%,0x3ff
+HKLM,"SOFTWARE\Dolby\PCEE4\DynamicKeys","{DD0DF94B-53A2-4A92-854E-91F42E28FD7B},1",%REG_DWORD%,0x1
+HKLM,"SOFTWARE\Dolby\PCEE4\DynamicKeys","{DD0DF94B-53A2-4A92-854E-91F42E28FD7B},2",%REG_DWORD%,0x1
 
 [NVHDA.Security.AddReg]
 HKR,,DeviceType,0x10001,0x0000001D
