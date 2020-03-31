@@ -636,15 +636,13 @@ ServiceBinary = %10%\system32\drivers\nvhda64v.sys
 
 [WINBLUESYSFX.AddReg]
 HKR,"FX\\0",%PKEY_ItemNameDisplay%,,%PCEE4_FX_FriendlyName%
-HKR,"FX\\0",%PKEY_FX_StreamEffectClsid%,,%PCEE4HDMIAPO_LFX_CLSID%
-HKR,"FX\\0",%PKEY_FX_EndpointEffectClsid%,,%PCEE4HDMIAPO_GFX_CLSID%
+HKR,"FX\\0",%PKEY_FX_PreMixClsid%,,%PCEE4HDMIAPO_LFX_CLSID%
+HKR,"FX\\0",%PKEY_FX_PostMixClsid%,,%PCEE4HDMIAPO_GFX_CLSID%
 HKR,"FX\\0",%PKEY_FX_UiClsid%,,%PCEE4HDMIAPO_UI_CLSID%
 HKR,"FX\\0",%PKEY_FX_Association%,,%KSNODETYPE_ANY%
 HKR,"EP\\0",%PKEY_AudioEndpoint_Association%,,%KSNODETYPE_ANY%
 HKR,"EP\\0",%PKEY_AudioEngine_OEMFormat%,%REG_BINARY%,41,00,00,00,28,00,00,00,FE,FF,02,00,80,BB,00,00,00,EE,02,00,04,00,10,00,16,00,10,00,03,00,00,00,01,00,00,00,00,00,10,00,80,00,00,AA,00,38,9B,71
 HKR,"EP\\0",%PKEY_AudioEndpoint_Supports_EventDriven_Mode%,%REG_DWORD%,0x00000001
-HKR,"FX\\0",%PKEY_SFX_ProcessingModes_Supported_For_Streaming%,0x00010000,%AUDIO_SIGNALPROCESSINGMODE_DEFAULT%
-HKR,"FX\\0",%PKEY_EFX_ProcessingModes_Supported_For_Streaming%,0x00010000,%AUDIO_SIGNALPROCESSINGMODE_DEFAULT%
 
 [Strings]
 ProviderName="NVIDIA Corporation"
